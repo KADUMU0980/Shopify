@@ -1,0 +1,88 @@
+[
+  {
+    "category": "Electronics",
+    "name": "Sony WH-1000XM5 Wireless Headphones",
+    "price": 34990,
+    "discountedPrice": 29990,
+    "stock": 120,
+    "brand": "Sony",
+    "description": "Industry-leading noise cancellation, up to 30 hours of battery life.",
+    "images": ["https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=800&q=80"],
+    "tags": ["headphones", "wireless", "audio", "sony"],
+    "specifications": {
+      "Type": "Over-Ear",
+      "Battery Life": "30 Hours",
+      "Noise Cancellation": "Active"
+    },
+    "recommended": true
+  },
+  {
+    "category": "Electronics",
+    "name": "Apple MacBook Air M3",
+    "price": 114900,
+    "discountedPrice": 109900,
+    "stock": 45,
+    "brand": "Apple",
+    "description": "Supercharged by M3. 13.6-inch Liquid Retina display, 8GB RAM, 256GB SSD.",
+    "images": ["https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&q=80"],
+    "tags": ["laptop", "apple", "macbook", "m3"],
+    "specifications": {
+      "Processor": "Apple M3",
+      "RAM": "8GB",
+      "Storage": "256GB SSD",
+      "Display": "13.6-inch Liquid Retina"
+    },
+    "recommended": true
+  },
+  {
+    "category": "Electronics",
+    "name": "Samsung Galaxy Watch 6",
+    "price": 29999,
+    "discountedPrice": 24999,
+    "stock": 200,
+    "brand": "Samsung",
+    "description": "Advanced sleep coaching, heart rate monitoring, fitness tracking.",
+    "images": ["https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&q=80"],
+    "tags": ["smartwatch", "wearable", "samsung", "fitness"],
+    "specifications": {
+      "Display": "Super AMOLED",
+      "Battery": "300mAh",
+      "Water Resistance": "5ATM"
+    },
+    "recommended": false
+  },
+  {
+    "category": "Electronics",
+    "name": "Logitech MX Master 3S",
+    "price": 10995,
+    "discountedPrice": 8995,
+    "stock": 85,
+    "brand": "Logitech",
+    "description": "Wireless performance mouse with ultra-fast scrolling and ergonomic design.",
+    "images": ["https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=800&q=80"],
+    "tags": ["mouse", "wireless", "logitech", "productivity"],
+    "specifications": {
+      "Sensor": "8000 DPI",
+      "Connectivity": "Bluetooth / USB Receiver",
+      "Battery": "Up to 70 days"
+    },
+    "recommended": true
+  },
+  {
+    "category": "Electronics",
+    "name": "LG 27-inch 4K UHD Monitor",
+    "price": 32000,
+    "discountedPrice": 28500,
+    "stock": 30,
+    "brand": "LG",
+    "description": "IPS display with VESA DisplayHDR 400 and USB-C connectivity.",
+    "images": ["https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=800&q=80"],
+    "tags": ["monitor", "display", "4k", "lg"],
+    "specifications": {
+      "Resolution": "3840 x 2160",
+      "Panel Type": "IPS",
+      "Refresh Rate": "60Hz"
+    },
+    "recommended": false
+  }
+]
