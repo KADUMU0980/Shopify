@@ -23,7 +23,8 @@ export async function POST(_req: NextRequest, { params }: Params) {
       user.wishlist.splice(idx, 1);
       action = 'removed';
     } else {
-      user.wishlist.push(params.productId);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      user.wishlist.push(params.productId as any);
       action = 'added';
     }
 

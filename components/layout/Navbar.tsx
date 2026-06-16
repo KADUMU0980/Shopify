@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import {
   ShoppingCartIcon, HeartIcon, MagnifyingGlassIcon,
-  UserCircleIcon, ChevronDownIcon, Bars3Icon, XMarkIcon,
+  ChevronDownIcon, Bars3Icon, XMarkIcon,
   ShieldCheckIcon, ArchiveBoxIcon, UserIcon, ArrowRightOnRectangleIcon,
   SparklesIcon,
 } from '@heroicons/react/24/outline';

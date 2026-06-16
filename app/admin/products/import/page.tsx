@@ -5,8 +5,9 @@ import { bulkProductSchema, BulkProductInput } from '@/lib/validations/bulkProdu
 import { toast } from 'react-hot-toast';
 
 export default function BulkImportPage() {
-  const [file, setFile] = useState<File | null>(null);
+
   const [parsedData, setParsedData] = useState<BulkProductInput | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [errors, setErrors] = useState<any[]>([]);
   const [isUploading, setIsUploading] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -20,7 +21,7 @@ export default function BulkImportPage() {
       return;
     }
 
-    setFile(selectedFile);
+
     const reader = new FileReader();
     reader.onload = (event) => {
       try {
@@ -36,7 +37,7 @@ export default function BulkImportPage() {
           setParsedData(validation.data);
           toast.success(`Successfully parsed ${validation.data.items.length} products`);
         }
-      } catch (err) {
+      } catch {
         toast.error('Failed to parse JSON file');
       }
     };
@@ -83,11 +84,12 @@ export default function BulkImportPage() {
       }
 
       toast.success(`Import complete: ${totalInserted} inserted, ${totalUpdated} updated`);
-      setFile(null);
+
       setParsedData(null);
       
-    } catch (error: any) {
-      toast.error(error.message || 'An error occurred during import');
+    } catch (error: unknown) {
+      const err = error as Error;
+      toast.error(err.message || 'An error occurred during import');
     } finally {
       setIsUploading(false);
     }

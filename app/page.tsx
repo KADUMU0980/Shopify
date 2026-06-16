@@ -3,7 +3,7 @@ import HeroBanner from '@/components/home/HeroBanner';
 import CategoryStrip from '@/components/home/CategoryStrip';
 import TrendingRow from '@/components/home/TrendingRow';
 import DealCountdown from '@/components/home/DealCountdown';
-import { IProduct } from '@/types';
+
 
 export const metadata: Metadata = {
   title: 'ShopVerse — Premium E-Commerce Store',

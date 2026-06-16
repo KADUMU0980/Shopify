@@ -4,7 +4,7 @@ import Cart from '@/lib/models/Cart';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 
-export async function GET(_req: NextRequest) {
+export async function GET() {
   try {
     const session = await getServerSession(authOptions);
     if (!session) return NextResponse.json({ items: [] });
@@ -34,8 +34,11 @@ export async function POST(req: NextRequest) {
     let cart = await Cart.findOne({ userId });
     if (!cart) cart = await Cart.create({ userId, items: [] });
 
-    const existing = cart.items.find(
-      (i: { productId: { toString(): string } }) => i.productId.toString() === item.productId
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const items = cart.items as any[];
+    const existing = items.find(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (i: any) => i.productId.toString() === item.productId
     );
     if (existing) {
       existing.quantity += item.quantity ?? 1;
@@ -51,7 +54,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function DELETE(_req: NextRequest) {
+export async function DELETE() {
   try {
     const session = await getServerSession(authOptions);
     if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

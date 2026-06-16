@@ -41,7 +41,8 @@ export async function GET(req: NextRequest) {
     const skip  = (page - 1) * limit;
     const total = await Product.countDocuments(query);
     const products = await Product.find(query)
-      .sort(sortQuery)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .sort(sortQuery as any)
       .skip(skip)
       .limit(limit)
       .lean();

@@ -29,6 +29,7 @@ export async function POST(req: Request) {
     const { category, items } = parsedData.data;
 
     // Prepare bulkWrite operations
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const bulkOps: any = items.map((item) => {
       // Create a base slug
       const baseSlug = slugify(`${item.name} ${item.brand}`, { lower: true, strict: true });
@@ -64,10 +65,11 @@ export async function POST(req: Request) {
       },
       { status: 200 }
     );
-  } catch (error: any) {
-    console.error('Bulk API Error:', error);
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.error('Bulk API Error:', err);
     return NextResponse.json(
-      { error: 'Internal server error', details: error.message },
+      { error: 'Internal server error', details: err.message },
       { status: 500 }
     );
   }
@@ -96,10 +98,11 @@ export async function DELETE(req: Request) {
       { status: 200 }
     );
 
-  } catch (error: any) {
-    console.error('Bulk Delete Error:', error);
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.error('Bulk Delete Error:', err);
     return NextResponse.json(
-      { error: 'Internal server error', details: error.message },
+      { error: 'Internal server error', details: err.message },
       { status: 500 }
     );
   }

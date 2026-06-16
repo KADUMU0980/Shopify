@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react';
 import toast from 'react-hot-toast';
 
 export default function ProfilePage() {
-  const { data: session, update } = useSession();
+  const { data: session } = useSession();
   const [form, setForm] = useState({ name: '', email: '' });
   const [loading, setLoading] = useState(false);
 

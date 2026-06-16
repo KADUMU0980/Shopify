@@ -18,11 +18,13 @@ export async function PUT(req: NextRequest, { params }: Params) {
     const cart = await Cart.findOne({ userId });
     if (!cart) return NextResponse.json({ error: 'Cart not found' }, { status: 404 });
 
-    const item = cart.items.id(params.itemId);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const items: any = cart.items;
+    const item = items.id(params.itemId);
     if (!item) return NextResponse.json({ error: 'Item not found in cart' }, { status: 404 });
 
     if (quantity <= 0) {
-      cart.items.pull(params.itemId);
+      items.pull(params.itemId);
     } else {
       item.quantity = quantity;
     }
@@ -46,7 +48,9 @@ export async function DELETE(_req: NextRequest, { params }: Params) {
     const cart = await Cart.findOne({ userId });
     if (!cart) return NextResponse.json({ error: 'Cart not found' }, { status: 404 });
 
-    cart.items.pull(params.itemId);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const items: any = cart.items;
+    items.pull(params.itemId);
     await cart.save();
     return NextResponse.json(cart);
   } catch (error) {

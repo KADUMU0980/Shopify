@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSession } from 'next-auth/react';
+
 import { useCartStore } from '@/store/cartStore';
 import { formatPrice } from '@/lib/utils';
 import toast from 'react-hot-toast';
@@ -20,7 +20,6 @@ interface Address {
 
 export default function CheckoutPage() {
   const router = useRouter();
-  const { data: session } = useSession();
   const { items, totalPrice, clearCart } = useCartStore();
   const [step, setStep] = useState(0);
   const [address, setAddress] = useState<Address>({ fullName: '', phone: '', address: '', city: '', state: '', pincode: '' });
